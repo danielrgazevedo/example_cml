@@ -1,5 +1,4 @@
-from sklearn.metrics import plot_confusion_matrix
-import matplotlib.pyplot as plt
+from sklearn.metrics import precision_score, recall_score, accuracy_score
 import numpy as np
 import pickle
 
@@ -11,4 +10,14 @@ with open('model.pickle', 'rb') as f:
     clf = pickle.load(f)
 
 print("Testing model...")
+y_pred = csf.predict(X_test)
 acc = clf.score(X_test, y_test)
+
+
+with open("metrics.json", 'w') as outfile:
+    json.dump(
+        {
+            "accuracy": accuracy_score(y_test, y_pred),
+            "precision": precision_score(y_test, y_pred),
+            "recall": recall_score(y_test, y_pred)
+        }, outfile)
