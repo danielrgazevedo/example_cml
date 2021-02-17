@@ -16,7 +16,7 @@ clf = RandomForestClassifier(max_depth=depth)
 clf.fit(X_train, y_train)
 
 with open('model.pickle', 'wb') as f:
-        pickle.dump(clf, f)
+    pickle.dump(clf, f)
 
 
 acc = clf.score(X_train, y_train)
