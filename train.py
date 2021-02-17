@@ -14,7 +14,7 @@ y_train = np.genfromtxt("data/train_labels.csv")
 depth = 3
 clf = RandomForestClassifier(max_depth=depth)
 clf.fit(X_train, y_train)
-
+print("Training model...")
 with open('model.pickle', 'wb') as f:
     pickle.dump(clf, f)
 
