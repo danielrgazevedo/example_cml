@@ -20,7 +20,7 @@ with open('model.pickle', 'wb') as f:
 
 
 acc = clf.score(X_train, y_train)
-with open("metrics.txt", 'w') as outfile:
+with open("acc_train.txt", 'w') as outfile:
     outfile.write("Training Accuracy: " + str(acc) + "\n")
 
 

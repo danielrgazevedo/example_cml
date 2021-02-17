@@ -12,14 +12,3 @@ with open('model.pickle', 'rb') as f:
 
 print("Testing model...")
 acc = clf.score(X_test, y_test)
-
-with open("metrics_test.txt", 'w') as outfile:
-    outfile.write("Test Accuracy: " + str(acc) + "\n")
-
-# Plot it
-disp = plot_confusion_matrix(clf,
-                             X_test,
-                             y_test,
-                             normalize='true',
-                             cmap=plt.cm.Blues)
-plt.savefig('confusion_matrix_test.png')

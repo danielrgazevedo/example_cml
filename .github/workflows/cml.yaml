@@ -16,13 +16,10 @@ jobs:
           python train.py
 
           # display training metrics
-          cat metrics.txt >> report.md
-          cml-publish confusion_matrix.png --md >> report.md
+          cat acc_train.txt >> report.md
           cml-send-comment report.md
+          cml-publish confusion_matrix.png --md >> report.md
           cml-send-github-check report.md
 
           # run test to assure nothing is broken
           python test.py
-          cat metrics_test.txt >> report_test.md
-          cml-publish confusion_matrix_test.png --md >> report_test.md
-          cml-send-github-check report_test.md
