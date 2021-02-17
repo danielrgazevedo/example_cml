@@ -1,0 +1,15 @@
+stages:
+  train:
+    cmd: python train.py
+    deps:
+    - train.py
+    outs:
+    - confusion_matrix.png
+
+  test:
+    cmd: python test.py
+    deps:
+    - test.py
+    metrics:
+    - metrics.json:
+        cache: false
