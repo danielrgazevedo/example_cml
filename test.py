@@ -1,6 +1,7 @@
 from sklearn.metrics import precision_score, recall_score, accuracy_score
 import numpy as np
 import pickle
+import json
 
 # Read in data
 X_test = np.genfromtxt("data/test_features.csv")
@@ -10,7 +11,7 @@ with open('model.pickle', 'rb') as f:
     clf = pickle.load(f)
 
 print("Testing model...")
-y_pred = csf.predict(X_test)
+y_pred = clf.predict(X_test)
 acc = clf.score(X_test, y_test)
 
 
