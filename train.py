@@ -1,4 +1,5 @@
-from sklearn.ensemble import RandomForestClassifier
+# from sklearn.ensemble import RandomForestClassifier
+from sklearn.svm import SVC
 from sklearn.metrics import plot_confusion_matrix
 import matplotlib.pyplot as plt
 import numpy as np
@@ -11,8 +12,8 @@ y_train = np.genfromtxt("data/train_labels.csv")
 
 
 # Fit a model
-clf = RandomForestClassifier()
-# clf = SVC()
+# clf = RandomForestClassifier()
+clf = SVC()
 clf.fit(X_train, y_train)
 print("Training model...")
 with open('model.pickle', 'wb') as f:
