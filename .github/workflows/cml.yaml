@@ -16,4 +16,4 @@ jobs:
 
           git fetch --prune
           dvc metrics diff --show-md master > report
-          cml-send comment report.md
+          cml-send-comment report.md
