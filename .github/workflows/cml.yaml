@@ -12,14 +12,8 @@ jobs:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
         run: |
           pip install -r requirements.txt
-          pytest
-          python train.py
+          dvc repro
 
-          # display training metrics
-          cat acc_train.txt >> report.md
-          cml-send-comment report.md
-          cml-publish confusion_matrix.png --md >> report.md
-          cml-send-github-check report.md
-
-          # run test to assure nothing is broken
-          python test.py
+          git fetch --prune
+          dvc metrics diff --show-md master > report
+          cml-send comment report.md
