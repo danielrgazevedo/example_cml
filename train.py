@@ -1,4 +1,4 @@
-from sklearn.ensemble import RandomForestClassifier
+# from sklearn.ensemble import RandomForestClassifier
 from sklearn.svm import SVC
 from sklearn.metrics import plot_confusion_matrix
 import matplotlib.pyplot as plt
